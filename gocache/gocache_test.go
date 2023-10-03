@@ -1,4 +1,4 @@
-package go_cache
+package gocache
 
 import (
 	"fmt"
@@ -50,5 +50,18 @@ func TestGet(t *testing.T) {
 
 	if view, err := newCache.Get("unknown"); err == nil {
 		t.Fatalf("the value of unknow should be empty, but %s got", view)
+	}
+}
+
+func TestGetGroup(t *testing.T) {
+	groupName := "scores"
+	NewGroup(groupName, 2<<10, GetterFunc(
+		func(key string) (bytes []byte, err error) { return }))
+	if group := GetGroup(groupName); group == nil || group.name != groupName {
+		t.Fatalf("group %s not exist", groupName)
+	}
+
+	if group := GetGroup(groupName + "111"); group != nil {
+		t.Fatalf("expect nil, but %s got", group.name)
 	}
 }

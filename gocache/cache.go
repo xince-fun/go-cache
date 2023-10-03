@@ -1,7 +1,7 @@
-package go_cache
+package gocache
 
 import (
-	"github.com/xince-fun/go-cache/lru"
+	"github.com/xince-fun/go-cache/gocache/lru"
 	"sync"
 )
 

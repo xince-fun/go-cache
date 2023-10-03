@@ -7,7 +7,7 @@
                             |-----> 调用`回调函数`，获取值并添加到缓存 --> 返回缓存值 ⑶
 */
 
-package go_cache
+package gocache
 
 import (
 	"fmt"
